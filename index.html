@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Metralhas E-sports — Top Jogadores</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0f15;
+      --card:#111827;
+      --muted:#9aa4b2;
+      --text:#e5e7eb;
+      --accent:#8b5cf6; /* roxo */
+      --accent-2:#06b6d4; /* ciano */
+      --success:#22c55e;
+      --danger:#ef4444;
+      --warning:#f59e0b;
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial, "Noto Color Emoji", "EmojiOne Color", "Segoe UI Emoji", sans-serif;
+      background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(139,92,246,.25), transparent 60%),
+        radial-gradient(800px 400px at 110% -10%, rgba(6,182,212,.25), transparent 60%),
+        linear-gradient(180deg, #0a0f16 0%, #0b0f15 100%);
+      color:var(--text);
+    }
+    .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+    }
+    .logo{
+      width:46px; height:46px; border-radius:12px;
+      background:
+       conic-gradient(from 220deg, var(--accent) 0 40%, var(--accent-2) 40% 80%, #374151 80% 100%);
+      box-shadow: var(--shadow);
+      position:relative; overflow:hidden;
+    }
+    .logo::after{
+      content:""; position:absolute; inset:2px; border-radius:10px; background:#0f172a;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
+    }
+    h1{font-size:clamp(20px, 2.6vw, 30px); margin:0}
+    .subtitle{color:var(--muted); font-size:14px; margin-top:2px}
+    .tools{display:flex; gap:10px; align-items:center}
+    .search{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      color:var(--text); padding:12px 14px; border-radius:12px; width:min(320px, 50vw);
+      outline:none; transition:.2s border-color;
+    }
+    .search:focus{border-color: rgba(139,92,246,.6)}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .table{
+      width:100%; border-collapse:separate; border-spacing:0;
+    }
+    .table thead th{
+      text-align:left; font-weight:600; padding:14px 16px; font-size:13px; letter-spacing:.02em;
+      color:#cdd3db; background:rgba(255,255,255,.03);
+      position:sticky; top:0; backdrop-filter: blur(8px);
+    }
+    .table tbody td{
+      padding:14px 16px; border-top:1px solid rgba(255,255,255,.06); vertical-align:middle;
+      font-size:14px;
+    }
+    .rank{font-variant-numeric:tabular-nums; opacity:.9; width:52px}
+    .name{font-weight:600}
+    .state{color:var(--muted); font-size:12px; margin-left:8px}
+    .record{white-space:nowrap; font-variant-numeric:tabular-nums}
+    .games{font-variant-numeric:tabular-nums; color:var(--muted)}
+    .rate{font-variant-numeric:tabular-nums; font-weight:600}
+    .tag{
+      font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.1);
+      color:#d1d5db; background:rgba(255,255,255,.03); margin-left:8px;
+    }
+    .bar{
+      position:relative; height:8px; border-radius:999px; background:#1f2937; overflow:hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .bar > span{
+      position:absolute; inset:0 auto 0 0; width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .pill{
+      padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:600;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+    .gold{color:#fde68a}
+    .silver{color:#e5e7eb}
+    .bronze{color:#fbbf24}
+    footer{color:var(--muted); font-size:12px; text-align:center; margin-top:16px}
+    @media (max-width: 720px){
+      .state{display:none}
+      .games{display:none}
+      .tools{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Metralhas E-sports <span class="tag">Ranking Atual</span></h1>
+          <div class="subtitle">Top jogadores, taxa de vitória e histórico (V • E • D)</div>
+        </div>
+      </div>
+      <div class="tools">
+        <input id="q" class="search" type="search" placeholder="Pesquisar jogador…" aria-label="Pesquisar jogador" />
+      </div>
+    </header>
+
+    <div class="card" role="region" aria-label="Tabela de jogadores">
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th class="rank">#</th>
+            <th>Jogador</th>
+            <th>Histórico</th>
+            <th>Win Rate</th>
+            <th>Jogos</th>
+          </tr>
+        </thead>
+        <tbody><!-- preenchido via JS --></tbody>
+      </table>
+    </div>
+
+    <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
+  </div>
+
+<script>
+  // Dados a partir dos prints enviados (ordem de colocação)
+  const players = [
+    {rank:1,  name:"DAVX",        state:"BA", rec:"4V • 0E • 1D", rate:80, games:5,  medal:"🥇"},
+    {rank:2,  name:"Everton086",  state:"PI", rec:"8V • 2E • 1D", rate:73, games:11, medal:"🥈"},
+    {rank:3,  name:"Vitin",       state:"PI", rec:"2V • 0E • 1D", rate:67, games:3,  medal:"🥉"},
+    {rank:4,  name:"vt7",         state:"RN", rec:"6V • 1E • 3D", rate:60, games:10},
+    {rank:5,  name:"PZR10",       state:"BA", rec:"3V • 0E • 2D", rate:60, games:5},
+    {rank:6,  name:"DL7",         state:"BA", rec:"4V • 1E • 5D", rate:40, games:10},
+    {rank:7,  name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D", rate:33, games:3},
+    {rank:8,  name:"Biel7",       state:"MG", rec:"1V • 0E • 2D", rate:33, games:3},
+    {rank:9,  name:"PAULINO7",    state:"PE", rec:"1V • 1E • 1D", rate:33, games:3},
+    {rank:10, name:"Pulgar",      state:"MA", rec:"1V • 0E • 2D", rate:33, games:3},
+    {rank:11, name:"Italo Dugrau",state:"PI", rec:"2V • 0E • 5D", rate:29, games:7},
+    {rank:12, name:"CEGUIN",      state:"RN", rec:"1V • 2E • 1D", rate:25, games:4},
+    {rank:13, name:"Lima",        state:"GO", rec:"1V • 1E • 2D", rate:25, games:4},
+    {rank:14, name:"Lukas Pit",   state:"MG", rec:"1V • 2E • 3D", rate:17, games:6},
+    {rank:15, name:"Liderança",   state:"PI", rec:"0V • 3E • 1D", rate:0,  games:4},
+    {rank:16, name:"Euzebio",     state:"BA", rec:"0V • 2E • 2D", rate:0,  games:4},
+    {rank:17, name:"CF10",        state:"PI", rec:"0V • 0E • 2D", rate:0,  games:2},
+    {rank:18, name:"LeoniM10",    state:"MA", rec:"0V • 1E • 1D", rate:0,  games:2},
+    {rank:19, name:"SM7_PRO",     state:"MA", rec:"0V • 0E • 2D", rate:0,  games:2},
+  ];
+
+  const tbody = document.querySelector("#table tbody");
+  const q = document.getElementById("q");
+
+  function rateBadge(v){
+    let tone = v >= 70 ? "success" : v >= 50 ? "warning" : "danger";
+    return `<span class="pill" style="border-color:rgba(255,255,255,.12)">${v}%</span>`;
+  }
+
+  function row(p){
+    const medalClass = p.rank===1?'gold':p.rank===2?'silver':p.rank===3?'bronze':'';
+    const medal = p.medal ? `<span class="${medalClass}" title="Top ${p.rank}">${p.medal}</span>` : '';
+    return `
+      <tr>
+        <td class="rank">${p.rank.toString().padStart(2,'0')}</td>
+        <td class="name">${medal} ${p.name} <span class="state">(${p.state})</span></td>
+        <td class="record">${p.rec}</td>
+        <td class="rate">
+          ${rateBadge(p.rate)}
+          <div class="bar" aria-hidden="true"><span style="width:${p.rate}%"></span></div>
+        </td>
+        <td class="games">${p.games} jogos</td>
+      </tr>
+    `;
+  }
+
+  function render(list){
+    tbody.innerHTML = list.map(row).join("");
+  }
+
+  // busca simples por nome
+  q.addEventListener("input", () => {
+    const term = q.value.trim().toLowerCase();
+    const filtered = players.filter(p => p.name.toLowerCase().includes(term));
+    render(filtered);
+  });
+
+  render(players);
+</script>
+</body>
+</html>
