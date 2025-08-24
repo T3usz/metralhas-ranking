@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Metralhas E-sports — Top Jogadores</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -24,18 +24,20 @@
     </header>
 
     <div class="card" role="region" aria-label="Tabela de jogadores">
-      <table class="table" id="table">
-        <thead>
-          <tr>
-            <th class="rank">#</th>
-            <th>Jogador</th>
-            <th>Histórico</th>
-            <th>Win Rate</th>
-            <th>Jogos</th>
-          </tr>
-        </thead>
-        <tbody><!-- preenchido via JS --></tbody>
-      </table>
+      <div class="table-wrap">
+        <table class="table" id="table">
+          <thead>
+            <tr>
+              <th class="rank">#</th>
+              <th>Jogador</th>
+              <th>Histórico</th>
+              <th>Win Rate</th>
+              <th>Jogos</th>
+            </tr>
+          </thead>
+          <tbody><!-- preenchido via JS --></tbody>
+        </table>
+      </div>
     </div>
 
     <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
@@ -73,22 +75,21 @@
     const tbody = document.querySelector("#table tbody");
     const q = document.getElementById("q");
 
-    const rateBadge = v =>
-      `<span class="pill">${v}%</span>`;
+    const rateBadge = v => `<span class="pill">${v}%</span>`;
 
     function row(p){
       const medalClass = p.rank===1?'gold':p.rank===2?'silver':p.rank===3?'bronze':'';
       const medal = p.medal ? `<span class="${medalClass}" title="Top ${p.rank}">${p.medal}</span>` : '';
       return `
         <tr>
-          <td class="rank">${p.rank.toString().padStart(2,'0')}</td>
-          <td class="name">${medal} ${p.name} <span class="state">(${p.state})</span></td>
-          <td class="record">${p.rec}</td>
-          <td class="rate">
+          <td class="rank" data-label="#">${p.rank.toString().padStart(2,'0')}</td>
+          <td class="name" data-label="Jogador">${medal} ${p.name} <span class="state">(${p.state})</span></td>
+          <td class="record" data-label="Histórico">${p.rec}</td>
+          <td class="rate" data-label="Win Rate">
             ${rateBadge(p.rate)}
             <div class="bar" aria-hidden="true"><span style="width:${p.rate}%"></span></div>
           </td>
-          <td class="games">${p.games} jogos</td>
+          <td class="games" data-label="Jogos">${p.games} jogos</td>
         </tr>
       `;
     }

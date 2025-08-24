@@ -1,20 +1,11 @@
+/* ---------- Tema laranja + preto (mobile-first) ---------- */
 :root{
-  --bg:#0a0a0a;              /* preto base */
-  --bg-2:#0e0e0e;
-  --card:#141414;
-  --muted:#9aa4b2;
-  --text:#f3f4f6;
-
-  /* laranjas */
-  --accent:#ff7a18;          /* laranja principal */
-  --accent-2:#ffb703;        /* laranja/amarelo para gradiente */
-
-  --success:#22c55e;
-  --danger:#ef4444;
-  --warning:#f59e0b;
-
-  --radius:16px;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --bg:#0a0a0a; --bg-2:#0e0e0e; --card:#141414;
+  --muted:#9aa4b2; --text:#f3f4f6;
+  --accent:#ff7a18;                /* laranja principal */
+  --accent-2:#ffb703;              /* laranja/amarelo gradiente */
+  --success:#22c55e; --danger:#ef4444; --warning:#f59e0b;
+  --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
   color-scheme: dark;
 }
 *{box-sizing:border-box}
@@ -22,47 +13,40 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Color Emoji","EmojiOne Color","Segoe UI Emoji",sans-serif;
+  font-size:clamp(14px, 2.5vw, 16px);
   background:
     radial-gradient(1200px 600px at -10% -10%, rgba(255,122,24,.18), transparent 60%),
     radial-gradient(900px 500px at 110% -10%, rgba(255,183,3,.14), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
   color:var(--text);
 }
-.wrap{max-width:1100px;margin:40px auto;padding:0 20px}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
-.brand{display:flex;align-items:center;gap:14px}
+.wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
 .logo{
   width:46px;height:46px;border-radius:12px;position:relative;overflow:hidden;box-shadow:var(--shadow);
   background: conic-gradient(from 220deg, var(--accent) 0 50%, var(--accent-2) 50% 85%, #2a2a2a 85% 100%);
 }
-.logo::after{
-  content:"";position:absolute;inset:2px;border-radius:10px;background:#111;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
-}
-
-h1{font-size:clamp(20px,2.6vw,30px);margin:0}
-.subtitle{color:var(--muted);font-size:14px;margin-top:2px}
-.tools{display:flex;gap:10px;align-items:center}
-
+.logo::after{content:"";position:absolute;inset:2px;border-radius:10px;background:#111;box-shadow: inset 0 0 0 2px rgba(255,255,255,.06)}
+h1{font-size:clamp(18px, 5vw, 30px);margin:0}
+.subtitle{color:var(--muted);font-size:13px;margin-top:2px}
+.tools{display:flex;gap:10px;align-items:center;width:100%}
 .search{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  color:var(--text);padding:12px 14px;border-radius:12px;width:min(320px,50vw);
-  outline:none;transition:.2s border-color, .2s box-shadow;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:var(--text);padding:12px 14px;border-radius:12px;width:100%;
+  outline:none;transition:.2s border-color,.2s box-shadow
 }
-.search:focus{
-  border-color: rgba(255,122,24,.6);
-  box-shadow: 0 0 0 3px rgba(255,122,24,.15);
-}
+.search:focus{border-color:rgba(255,122,24,.6);box-shadow:0 0 0 3px rgba(255,122,24,.15)}
 
 .card{
   background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+  border-radius:var(--radius); box-shadow:var(--shadow);
   overflow:hidden;
 }
 
+/* ---------- Tabela (desktop) + Cards (mobile) ---------- */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table{width:100%;border-collapse:separate;border-spacing:0}
 .table thead th{
   text-align:left;font-weight:600;padding:14px 16px;font-size:13px;letter-spacing:.02em;
@@ -70,7 +54,7 @@ h1{font-size:clamp(20px,2.6vw,30px);margin:0}
   position:sticky;top:0;backdrop-filter:blur(8px)
 }
 .table tbody td{
-  padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);vertical-align:middle;font-size:14px
+  padding:16px 14px;border-top:1px solid rgba(255,255,255,.06);vertical-align:middle;font-size:14px
 }
 
 .rank{font-variant-numeric:tabular-nums;opacity:.9;width:52px}
@@ -80,34 +64,39 @@ h1{font-size:clamp(20px,2.6vw,30px);margin:0}
 .games{font-variant-numeric:tabular-nums;color:var(--muted)}
 .rate{font-variant-numeric:tabular-nums;font-weight:600}
 
-.tag{
-  font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
-  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px
-}
+.tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
+  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px}
 
-.bar{
-  position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);margin-top:6px
-}
-.bar>span{
-  position:absolute;inset:0 auto 0 0;width:0%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-}
+.bar{position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);margin-top:6px}
+.bar>span{position:absolute;inset:0 auto 0 0;width:0%;background: linear-gradient(90deg, var(--accent), var(--accent-2))}
 
-.pill{
-  padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,122,24,.12);color:#ffd7a8
-}
+.pill{padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,122,24,.12);color:#ffd7a8}
 
-.gold{color:#ffea8a}
-.silver{color:#eeeeee}
-.bronze{color:#ffc561}
-
+.gold{color:#ffea8a}.silver{color:#eeeeee}.bronze{color:#ffc561}
 footer{color:var(--muted);font-size:12px;text-align:center;margin-top:16px}
 
-@media (max-width:720px){
-  .state{display:none}
-  .games{display:none}
-  .tools{flex-wrap:wrap}
+/* ---------- Modo Cards (telas pequenas) ---------- */
+@media (max-width: 640px){
+  .table{min-width: 0}
+  .table thead{display:none}
+  .table tbody tr{
+    display:grid;grid-template-columns: 42px 1fr;gap:8px;
+    padding:10px 12px;border-top:1px solid rgba(255,255,255,.06)
+  }
+  .table tbody td{border:0;padding:6px 4px}
+  .table tbody td.rank{grid-row:1 / span 2;align-self:start;padding-top:10px}
+  .table tbody td.name{grid-column:2}
+  .table tbody td.record,
+  .table tbody td.rate,
+  .table tbody td.games{
+    grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;
+    padding:6px 0;border-top:1px dashed rgba(255,255,255,.06)
+  }
+  /* rótulos dos campos */
+  .table tbody td[data-label]::before{
+    content: attr(data-label);
+    color:#c9c9c9;font-size:12px;margin-right:12px;opacity:.8
+  }
 }
