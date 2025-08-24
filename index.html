@@ -6,111 +6,7 @@
   <title>Metralhas E-sports — Top Jogadores</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #0b0f15;
-      --card:#111827;
-      --muted:#9aa4b2;
-      --text:#e5e7eb;
-      --accent:#8b5cf6; /* roxo */
-      --accent-2:#06b6d4; /* ciano */
-      --success:#22c55e;
-      --danger:#ef4444;
-      --warning:#f59e0b;
-      --radius:16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial, "Noto Color Emoji", "EmojiOne Color", "Segoe UI Emoji", sans-serif;
-      background:
-        radial-gradient(1200px 600px at -10% -10%, rgba(139,92,246,.25), transparent 60%),
-        radial-gradient(800px 400px at 110% -10%, rgba(6,182,212,.25), transparent 60%),
-        linear-gradient(180deg, #0a0f16 0%, #0b0f15 100%);
-      color:var(--text);
-    }
-    .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
-    header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:14px;
-    }
-    .logo{
-      width:46px; height:46px; border-radius:12px;
-      background:
-       conic-gradient(from 220deg, var(--accent) 0 40%, var(--accent-2) 40% 80%, #374151 80% 100%);
-      box-shadow: var(--shadow);
-      position:relative; overflow:hidden;
-    }
-    .logo::after{
-      content:""; position:absolute; inset:2px; border-radius:10px; background:#0f172a;
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
-    }
-    h1{font-size:clamp(20px, 2.6vw, 30px); margin:0}
-    .subtitle{color:var(--muted); font-size:14px; margin-top:2px}
-    .tools{display:flex; gap:10px; align-items:center}
-    .search{
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
-      color:var(--text); padding:12px 14px; border-radius:12px; width:min(320px, 50vw);
-      outline:none; transition:.2s border-color;
-    }
-    .search:focus{border-color: rgba(139,92,246,.6)}
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .table{
-      width:100%; border-collapse:separate; border-spacing:0;
-    }
-    .table thead th{
-      text-align:left; font-weight:600; padding:14px 16px; font-size:13px; letter-spacing:.02em;
-      color:#cdd3db; background:rgba(255,255,255,.03);
-      position:sticky; top:0; backdrop-filter: blur(8px);
-    }
-    .table tbody td{
-      padding:14px 16px; border-top:1px solid rgba(255,255,255,.06); vertical-align:middle;
-      font-size:14px;
-    }
-    .rank{font-variant-numeric:tabular-nums; opacity:.9; width:52px}
-    .name{font-weight:600}
-    .state{color:var(--muted); font-size:12px; margin-left:8px}
-    .record{white-space:nowrap; font-variant-numeric:tabular-nums}
-    .games{font-variant-numeric:tabular-nums; color:var(--muted)}
-    .rate{font-variant-numeric:tabular-nums; font-weight:600}
-    .tag{
-      font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.1);
-      color:#d1d5db; background:rgba(255,255,255,.03); margin-left:8px;
-    }
-    .bar{
-      position:relative; height:8px; border-radius:999px; background:#1f2937; overflow:hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .bar > span{
-      position:absolute; inset:0 auto 0 0; width:0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-    .pill{
-      padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:600;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-    }
-    .gold{color:#fde68a}
-    .silver{color:#e5e7eb}
-    .bronze{color:#fbbf24}
-    footer{color:var(--muted); font-size:12px; text-align:center; margin-top:16px}
-    @media (max-width: 720px){
-      .state{display:none}
-      .games{display:none}
-      .tools{flex-wrap:wrap}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="wrap">
@@ -145,73 +41,66 @@
     <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
   </div>
 
-<script>
-  // Dados a partir dos prints enviados (ordem de colocação)
-  const players = [
-    {rank:1,  name:"KG",          state:"PE", rec:"4V • 0E • 0D", rate:100, games:4,  medal:"🥇"},
-    {rank:2,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D", rate:100, games:1,  medal:"🥈"},
-    {rank:3,  name:"DAVX",        state:"BA", rec:"6V • 1E • 1D", rate:75,  games:8,  medal:"🥉"},
-    {rank:4,  name:"Everton086",  state:"PI", rec:"19V • 3E • 4D", rate:73, games:26},
-    {rank:5,  name:"Vitin",       state:"PI", rec:"6V • 1E • 2D",  rate:67, games:9},
-    {rank:6,  name:"MALVADEZA",   state:"PE", rec:"6V • 1E • 3D",  rate:60, games:10},
-    {rank:7,  name:"Pulgar",      state:"MA", rec:"4V • 0E • 3D",  rate:57, games:7},
-    {rank:8,  name:"Lukas Pit",   state:"MG", rec:"9V • 2E • 6D",  rate:53, games:17},
-    {rank:9,  name:"vt7",         state:"RN", rec:"11V • 5E • 4D", rate:52, games:21},
-    {rank:10, name:"PZR10",       state:"BA", rec:"3V • 0E • 3D",  rate:50, games:6},
-    {rank:11, name:"DL7",         state:"BA", rec:"7V • 1E • 7D",  rate:47, games:15},
-    {rank:12, name:"Euzebio",     state:"BA", rec:"5V • 2E • 4D",  rate:45, games:11},
-    {rank:13, name:"PAULINO7",    state:"PE", rec:"2V • 1E • 2D",  rate:40, games:5},
-    {rank:14, name:"CEGUIN",      state:"RN", rec:"3V • 4E • 1D",  rate:38, games:8},
-    {rank:15, name:"EdgarWXZ",    state:"AL", rec:"1V • 2E • 0D",  rate:33, games:3},
-    {rank:16, name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D",  rate:33, games:3},
-    {rank:17, name:"Biel7",       state:"MG", rec:"2V • 0E • 5D",  rate:29, games:7},
-    {rank:18, name:"CF10",        state:"PI", rec:"1V • 0E • 3D",  rate:25, games:4},
-    {rank:19, name:"Italo Dugrau",state:"PI", rec:"2V • 1E • 7D",  rate:20, games:10},
-    {rank:20, name:"Liderança",   state:"PI", rec:"1V • 4E • 2D",  rate:14, games:7},
-    {rank:21, name:"Lima",        state:"GO", rec:"1V • 2E • 4D",  rate:14, games:7},
-    {rank:22, name:"LeoniM10",    state:"MA", rec:"0V • 1E • 3D",  rate:0,  games:4},
-    {rank:23, name:"SM7_PRO",     state:"MA", rec:"0V • 0E • 3D",  rate:0,  games:3},
-    {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",  rate:0,  games:1},
-];
+  <script>
+    // dados
+    const players = [
+      {rank:1,  name:"KG",          state:"PE", rec:"4V • 0E • 0D", rate:100, games:4,  medal:"🥇"},
+      {rank:2,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D", rate:100, games:1,  medal:"🥈"},
+      {rank:3,  name:"DAVX",        state:"BA", rec:"6V • 1E • 1D", rate:75,  games:8,  medal:"🥉"},
+      {rank:4,  name:"Everton086",  state:"PI", rec:"19V • 3E • 4D", rate:73, games:26},
+      {rank:5,  name:"Vitin",       state:"PI", rec:"6V • 1E • 2D",  rate:67, games:9},
+      {rank:6,  name:"MALVADEZA",   state:"PE", rec:"6V • 1E • 3D",  rate:60, games:10},
+      {rank:7,  name:"Pulgar",      state:"MA", rec:"4V • 0E • 3D",  rate:57, games:7},
+      {rank:8,  name:"Lukas Pit",   state:"MG", rec:"9V • 2E • 6D",  rate:53, games:17},
+      {rank:9,  name:"vt7",         state:"RN", rec:"11V • 5E • 4D", rate:52, games:21},
+      {rank:10, name:"PZR10",       state:"BA", rec:"3V • 0E • 3D",  rate:50, games:6},
+      {rank:11, name:"DL7",         state:"BA", rec:"7V • 1E • 7D",  rate:47, games:15},
+      {rank:12, name:"Euzebio",     state:"BA", rec:"5V • 2E • 4D",  rate:45, games:11},
+      {rank:13, name:"PAULINO7",    state:"PE", rec:"2V • 1E • 2D",  rate:40, games:5},
+      {rank:14, name:"CEGUIN",      state:"RN", rec:"3V • 4E • 1D",  rate:38, games:8},
+      {rank:15, name:"EdgarWXZ",    state:"AL", rec:"1V • 2E • 0D",  rate:33, games:3},
+      {rank:16, name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D",  rate:33, games:3},
+      {rank:17, name:"Biel7",       state:"MG", rec:"2V • 0E • 5D",  rate:29, games:7},
+      {rank:18, name:"CF10",        state:"PI", rec:"1V • 0E • 3D",  rate:25, games:4},
+      {rank:19, name:"Italo Dugrau",state:"PI", rec:"2V • 1E • 7D",  rate:20, games:10},
+      {rank:20, name:"Liderança",   state:"PI", rec:"1V • 4E • 2D",  rate:14, games:7},
+      {rank:21, name:"Lima",        state:"GO", rec:"1V • 2E • 4D",  rate:14, games:7},
+      {rank:22, name:"LeoniM10",    state:"MA", rec:"0V • 1E • 3D",  rate:0,  games:4},
+      {rank:23, name:"SM7_PRO",     state:"MA", rec:"0V • 0E • 3D",  rate:0,  games:3},
+      {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",  rate:0,  games:1},
+    ];
 
+    const tbody = document.querySelector("#table tbody");
+    const q = document.getElementById("q");
 
-  const tbody = document.querySelector("#table tbody");
-  const q = document.getElementById("q");
+    const rateBadge = v =>
+      `<span class="pill">${v}%</span>`;
 
-  function rateBadge(v){
-    let tone = v >= 70 ? "success" : v >= 50 ? "warning" : "danger";
-    return `<span class="pill" style="border-color:rgba(255,255,255,.12)">${v}%</span>`;
-  }
+    function row(p){
+      const medalClass = p.rank===1?'gold':p.rank===2?'silver':p.rank===3?'bronze':'';
+      const medal = p.medal ? `<span class="${medalClass}" title="Top ${p.rank}">${p.medal}</span>` : '';
+      return `
+        <tr>
+          <td class="rank">${p.rank.toString().padStart(2,'0')}</td>
+          <td class="name">${medal} ${p.name} <span class="state">(${p.state})</span></td>
+          <td class="record">${p.rec}</td>
+          <td class="rate">
+            ${rateBadge(p.rate)}
+            <div class="bar" aria-hidden="true"><span style="width:${p.rate}%"></span></div>
+          </td>
+          <td class="games">${p.games} jogos</td>
+        </tr>
+      `;
+    }
 
-  function row(p){
-    const medalClass = p.rank===1?'gold':p.rank===2?'silver':p.rank===3?'bronze':'';
-    const medal = p.medal ? `<span class="${medalClass}" title="Top ${p.rank}">${p.medal}</span>` : '';
-    return `
-      <tr>
-        <td class="rank">${p.rank.toString().padStart(2,'0')}</td>
-        <td class="name">${medal} ${p.name} <span class="state">(${p.state})</span></td>
-        <td class="record">${p.rec}</td>
-        <td class="rate">
-          ${rateBadge(p.rate)}
-          <div class="bar" aria-hidden="true"><span style="width:${p.rate}%"></span></div>
-        </td>
-        <td class="games">${p.games} jogos</td>
-      </tr>
-    `;
-  }
+    function render(list){ tbody.innerHTML = list.map(row).join(""); }
 
-  function render(list){
-    tbody.innerHTML = list.map(row).join("");
-  }
+    q.addEventListener("input", () => {
+      const term = q.value.trim().toLowerCase();
+      render(players.filter(p => p.name.toLowerCase().includes(term)));
+    });
 
-  // busca simples por nome
-  q.addEventListener("input", () => {
-    const term = q.value.trim().toLowerCase();
-    const filtered = players.filter(p => p.name.toLowerCase().includes(term));
-    render(filtered);
-  });
-
-  render(players);
-</script>
+    render(players);
+  </script>
 </body>
 </html>
