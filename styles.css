@@ -10,6 +10,7 @@
 }
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Color Emoji","EmojiOne Color","Segoe UI Emoji",sans-serif;
@@ -20,16 +21,33 @@ body{
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
   color:var(--text);
 }
+
 .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:46px;height:46px;border-radius:12px;position:relative;overflow:hidden;box-shadow:var(--shadow);
-  background: conic-gradient(from 220deg, var(--accent) 0 50%, var(--accent-2) 50% 85%, #2a2a2a 85% 100%);
+
+/* --- Escudo do time (substitui .logo) --- */
+.escudo{
+  width:54px; height:54px;
+  object-fit:cover;               /* ajusta sem distorcer */
+  border-radius:12px;             /* coerente com o layout */
+  box-shadow:var(--shadow);
+  background:#111;                /* caso a imagem não seja transparente */
+  position:relative;
+  outline:1px solid rgba(255,255,255,.06);
 }
-.logo::after{content:"";position:absolute;inset:2px;border-radius:10px;background:#111;box-shadow: inset 0 0 0 2px rgba(255,255,255,.06)}
+/* Moldura sutil em gradiente ao redor do escudo */
+.escudo::after{
+  content:"";
+  position:absolute; inset:-2px;
+  border-radius:14px; pointer-events:none;
+  background: conic-gradient(from 220deg, var(--accent) 0 50%, var(--accent-2) 50% 85%, #2a2a2a 85% 100%);
+  z-index:-1; filter:blur(6px); opacity:.35;
+}
+
 h1{font-size:clamp(18px, 5vw, 30px);margin:0}
 .subtitle{color:var(--muted);font-size:13px;margin-top:2px}
+
 .tools{display:flex;gap:10px;align-items:center;width:100%}
 .search{
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
@@ -64,15 +82,24 @@ h1{font-size:clamp(18px, 5vw, 30px);margin:0}
 .games{font-variant-numeric:tabular-nums;color:var(--muted)}
 .rate{font-variant-numeric:tabular-nums;font-weight:600}
 
-.tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
-  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px}
+.tag{
+  font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
+  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px
+}
 
-.bar{position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);margin-top:6px}
-.bar>span{position:absolute;inset:0 auto 0 0;width:0%;background: linear-gradient(90deg, var(--accent), var(--accent-2))}
+.bar{
+  position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);margin-top:6px
+}
+.bar>span{position:absolute;inset:0 auto 0 0;width:0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2))
+}
 
-.pill{padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
-  border:1px solid rgba(255,255,255,.12);background:rgba(255,122,24,.12);color:#ffd7a8}
+.pill{
+  padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,122,24,.12);color:#ffd7a8
+}
 
 .gold{color:#ffea8a}.silver{color:#eeeeee}.bronze{color:#ffc561}
 footer{color:var(--muted);font-size:12px;text-align:center;margin-top:16px}
