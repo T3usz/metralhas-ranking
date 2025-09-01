@@ -45,33 +45,34 @@
   </div>
 
   <script>
-    // dados
-    const players = [
-      {rank:1,  name:"KG",          state:"PE", rec:"4V • 0E • 0D", rate:100, games:4,  medal:"🥇"},
-      {rank:2,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D", rate:100, games:1,  medal:"🥈"},
-      {rank:3,  name:"DAVX",        state:"BA", rec:"6V • 1E • 1D", rate:75,  games:8,  medal:"🥉"},
-      {rank:4,  name:"Everton086",  state:"PI", rec:"19V • 3E • 4D", rate:73, games:26},
-      {rank:5,  name:"Vitin",       state:"PI", rec:"6V • 1E • 2D",  rate:67, games:9},
-      {rank:6,  name:"MALVADEZA",   state:"PE", rec:"6V • 1E • 3D",  rate:60, games:10},
-      {rank:7,  name:"Pulgar",      state:"MA", rec:"4V • 0E • 3D",  rate:57, games:7},
-      {rank:8,  name:"Lukas Pit",   state:"MG", rec:"9V • 2E • 6D",  rate:53, games:17},
-      {rank:9,  name:"vt7",         state:"RN", rec:"11V • 5E • 4D", rate:52, games:21},
-      {rank:10, name:"PZR10",       state:"BA", rec:"3V • 0E • 3D",  rate:50, games:6},
-      {rank:11, name:"DL7",         state:"BA", rec:"7V • 1E • 7D",  rate:47, games:15},
-      {rank:12, name:"Euzebio",     state:"BA", rec:"5V • 2E • 4D",  rate:45, games:11},
-      {rank:13, name:"PAULINO7",    state:"PE", rec:"2V • 1E • 2D",  rate:40, games:5},
-      {rank:14, name:"CEGUIN",      state:"RN", rec:"3V • 4E • 1D",  rate:38, games:8},
-      {rank:15, name:"EdgarWXZ",    state:"AL", rec:"1V • 2E • 0D",  rate:33, games:3},
-      {rank:16, name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D",  rate:33, games:3},
-      {rank:17, name:"Biel7",       state:"MG", rec:"2V • 0E • 5D",  rate:29, games:7},
-      {rank:18, name:"CF10",        state:"PI", rec:"1V • 0E • 3D",  rate:25, games:4},
-      {rank:19, name:"Italo Dugrau",state:"PI", rec:"2V • 1E • 7D",  rate:20, games:10},
-      {rank:20, name:"Liderança",   state:"PI", rec:"1V • 4E • 2D",  rate:14, games:7},
-      {rank:21, name:"Lima",        state:"GO", rec:"1V • 2E • 4D",  rate:14, games:7},
-      {rank:22, name:"LeoniM10",    state:"MA", rec:"0V • 1E • 3D",  rate:0,  games:4},
-      {rank:23, name:"SM7_PRO",     state:"MA", rec:"0V • 0E • 3D",  rate:0,  games:3},
-      {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",  rate:0,  games:1},
-    ];
+// Agosto 2025
+const data_2025_09 = [
+  {rank:1,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥇"},
+  {rank:2,  name:"KG",          state:"PE", rec:"10V • 2E • 0D", rate:83,  games:12, medal:"🥈"},
+  {rank:3,  name:"MALVADEZA",   state:"PE", rec:"14V • 1E • 5D",  rate:70,  games:20, medal:"🥉"},
+  {rank:4,  name:"DL7",         state:"BA", rec:"15V • 2E • 7D",  rate:63,  games:24},
+  {rank:5,  name:"Everton086",  state:"PI", rec:"25V • 9E • 8D",  rate:60,  games:42},
+  {rank:6,  name:"Vitin",       state:"PI", rec:"9V • 2E • 4D",   rate:60,  games:15},
+  {rank:7,  name:"SM7_PRO",     state:"MA", rec:"7V • 0E • 5D",   rate:58,  games:12},
+  {rank:8,  name:"Pulgar",      state:"MA", rec:"7V • 1E • 4D",   rate:58,  games:12},
+  {rank:9,  name:"Euzebio",     state:"BA", rec:"15V • 4E • 8D",  rate:56,  games:27},
+  {rank:10, name:"Lukas Pit",   state:"MG", rec:"17V • 7E • 8D",  rate:53,  games:32},
+  {rank:11, name:"DAVX",        state:"BA", rec:"8V • 3E • 4D",   rate:53,  games:15},
+  {rank:12, name:"vt7",         state:"RN", rec:"17V • 10E • 6D", rate:50,  games:34},
+  {rank:13, name:"PZR10",       state:"BA", rec:"3V • 0E • 3D",   rate:50,  games:6},
+  {rank:14, name:"EdgarWXZ",    state:"AL", rec:"3V • 3E • 1D",   rate:43,  games:7},
+  {rank:15, name:"CEGUIN",      state:"RN", rec:"6V • 6E • 3D",   rate:40,  games:15},
+  {rank:16, name:"PAULINO7",    state:"PE", rec:"4V • 3E • 3D",   rate:40,  games:10},
+  {rank:17, name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D",   rate:33,  games:3},
+  {rank:18, name:"Biel7",       state:"MG", rec:"2V • 0E • 5D",   rate:29,  games:7},
+  {rank:19, name:"Italo Dugrau",state:"PI", rec:"2V • 1E • 7D",   rate:20,  games:10},
+  {rank:20, name:"Liderança",   state:"PI", rec:"2V • 4E • 4D",   rate:18,  games:11},
+  {rank:21, name:"CF10",        state:"PI", rec:"1V • 0E • 5D",   rate:17,  games:6},
+  {rank:22, name:"LeoniM10",    state:"MA", rec:"1V • 1E • 4D",   rate:17,  games:6},
+  {rank:23, name:"Lima",        state:"GO", rec:"1V • 3E • 4D",   rate:13,  games:8},
+  {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",   rate:0,   games:1},
+];
+
 
     const tbody = document.querySelector("#table tbody");
     const q = document.getElementById("q");
