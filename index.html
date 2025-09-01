@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0a">
   <title>Metralhas E-sports — Top Jogadores</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -20,11 +21,12 @@
       </div>
 
       <div class="tools">
+        <select id="month" class="ctrl" aria-label="Selecionar mês"></select>
         <input id="q" class="search" type="search" placeholder="Pesquisar jogador…" aria-label="Pesquisar jogador" />
       </div>
     </header>
 
-    <div class="card" role="region" aria-label="Tabela de jogadores">
+    <div class="card" role="region" aria-label="Ranking de jogadores Metralhas E-sports">
       <div class="table-wrap">
         <table class="table" id="table">
           <thead>
@@ -44,67 +46,8 @@
     <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
   </div>
 
-  <script>
-// Agosto 2025
-const data_2025_08 = [
-  {rank:1,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥇"},
-  {rank:2,  name:"KG",          state:"PE", rec:"10V • 2E • 0D", rate:83,  games:12, medal:"🥈"},
-  {rank:3,  name:"MALVADEZA",   state:"PE", rec:"14V • 1E • 5D",  rate:70,  games:20, medal:"🥉"},
-  {rank:4,  name:"DL7",         state:"BA", rec:"15V • 2E • 7D",  rate:63,  games:24},
-  {rank:5,  name:"Everton086",  state:"PI", rec:"25V • 9E • 8D",  rate:60,  games:42},
-  {rank:6,  name:"Vitin",       state:"PI", rec:"9V • 2E • 4D",   rate:60,  games:15},
-  {rank:7,  name:"SM7_PRO",     state:"MA", rec:"7V • 0E • 5D",   rate:58,  games:12},
-  {rank:8,  name:"Pulgar",      state:"MA", rec:"7V • 1E • 4D",   rate:58,  games:12},
-  {rank:9,  name:"Euzebio",     state:"BA", rec:"15V • 4E • 8D",  rate:56,  games:27},
-  {rank:10, name:"Lukas Pit",   state:"MG", rec:"17V • 7E • 8D",  rate:53,  games:32},
-  {rank:11, name:"DAVX",        state:"BA", rec:"8V • 3E • 4D",   rate:53,  games:15},
-  {rank:12, name:"vt7",         state:"RN", rec:"17V • 10E • 6D", rate:50,  games:34},
-  {rank:13, name:"PZR10",       state:"BA", rec:"3V • 0E • 3D",   rate:50,  games:6},
-  {rank:14, name:"EdgarWXZ",    state:"AL", rec:"3V • 3E • 1D",   rate:43,  games:7},
-  {rank:15, name:"CEGUIN",      state:"RN", rec:"6V • 6E • 3D",   rate:40,  games:15},
-  {rank:16, name:"PAULINO7",    state:"PE", rec:"4V • 3E • 3D",   rate:40,  games:10},
-  {rank:17, name:"GBdazarea",   state:"CE", rec:"1V • 1E • 1D",   rate:33,  games:3},
-  {rank:18, name:"Biel7",       state:"MG", rec:"2V • 0E • 5D",   rate:29,  games:7},
-  {rank:19, name:"Italo Dugrau",state:"PI", rec:"2V • 1E • 7D",   rate:20,  games:10},
-  {rank:20, name:"Liderança",   state:"PI", rec:"2V • 4E • 4D",   rate:18,  games:11},
-  {rank:21, name:"CF10",        state:"PI", rec:"1V • 0E • 5D",   rate:17,  games:6},
-  {rank:22, name:"LeoniM10",    state:"MA", rec:"1V • 1E • 4D",   rate:17,  games:6},
-  {rank:23, name:"Lima",        state:"GO", rec:"1V • 3E • 4D",   rate:13,  games:8},
-  {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",   rate:0,   games:1},
-];
-
-
-
-    const tbody = document.querySelector("#table tbody");
-    const q = document.getElementById("q");
-
-    const rateBadge = v => `<span class="pill">${v}%</span>`;
-
-    function row(p){
-      const medalClass = p.rank===1?'gold':p.rank===2?'silver':p.rank===3?'bronze':'';
-      const medal = p.medal ? `<span class="${medalClass}" title="Top ${p.rank}">${p.medal}</span>` : '';
-      return `
-        <tr>
-          <td class="rank" data-label="#">${p.rank.toString().padStart(2,'0')}</td>
-          <td class="name" data-label="Jogador">${medal} ${p.name} <span class="state">(${p.state})</span></td>
-          <td class="record" data-label="Histórico">${p.rec}</td>
-          <td class="rate" data-label="Win Rate">
-            ${rateBadge(p.rate)}
-            <div class="bar" aria-hidden="true"><span style="width:${p.rate}%"></span></div>
-          </td>
-          <td class="games" data-label="Jogos">${p.games} jogos</td>
-        </tr>
-      `;
-    }
-
-    function render(list){ tbody.innerHTML = list.map(row).join(""); }
-
-    q.addEventListener("input", () => {
-      const term = q.value.trim().toLowerCase();
-      render(players.filter(p => p.name.toLowerCase().includes(term)));
-    });
-
-    render(players);
-  </script>
+  <!-- A ordem importa: primeiro os dados, depois o app -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
