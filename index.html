@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Link 'Sobre' no topo direito -->
+  <nav style="text-align:right; padding:8px 16px;">
+    <a href="sobre.html" class="tag">Sobre</a>
+  </nav>
+
   <div class="wrap">
     <header>
       <div class="brand">
@@ -25,6 +31,9 @@
         <input id="q" class="search" type="search" placeholder="Pesquisar jogador…" aria-label="Pesquisar jogador" />
       </div>
     </header>
+
+    <!-- 🏆 Mensagem de parabéns (efeito animado) -->
+    <div id="parabens" class="toast" style="display: none;"></div>
 
     <div class="card" role="region" aria-label="Ranking de jogadores Metralhas E-sports">
       <div class="table-wrap">
@@ -46,7 +55,7 @@
     <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
   </div>
 
-  <!-- A ordem importa: primeiro os dados, depois o app -->
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

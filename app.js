@@ -6,7 +6,7 @@ const tbody    = document.querySelector("#table tbody");
 const q        = document.getElementById("q");
 
 // ======= CONFIG =======
-const MIN_GAMES = 10; // <- mude aqui se quiser outro mínimo
+const MIN_GAMES = 3; // <- mude aqui se quiser outro mínimo
 
 // Preenche o seletor de meses a partir de datasetLabels
 monthSel.innerHTML = Object.entries(datasetLabels)
@@ -86,3 +86,38 @@ q.addEventListener("input", () => {
 
 // inicial
 render();
+
+// Exibe parabéns se o 1º colocado tiver 10 ou mais jogos
+function showParabens(data) {
+  const top = data.find(p => p.rank === 1);
+  if (!top || top.games < 10) return;
+
+  const div = document.getElementById("parabens");
+  div.innerHTML = `🏆 Parabéns, <strong>${top.name}</strong>! Você está em <strong>1º lugar</strong> com <strong>${top.games} jogos</strong>!`;
+  div.style.display = "block";
+
+  // Efeito de entrada
+  div.animate([
+    { opacity: 0, transform: "translateY(-20px)" },
+    { opacity: 1, transform: "translateY(0)" }
+  ], {
+    duration: 700,
+    fill: "forwards"
+  });
+
+  // Desaparece depois de 6 segundos
+  setTimeout(() => {
+    div.animate([
+      { opacity: 1, transform: "translateY(0)" },
+      { opacity: 0, transform: "translateY(-20px)" }
+    ], {
+      duration: 600,
+      fill: "forwards"
+    });
+  }, 6000);
+}
+
+// Sempre chamar após render
+showParabens(computeList());
+ // ou showParabens(data_2025_08) dependendo do mês ativo
+
