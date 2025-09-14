@@ -30,7 +30,8 @@ const data_2025_08 = [
 
 // Setembro 2025 — deixe vazio e preencha quando tiver resultados
 // Setembro 2025 — atualizado pelos últimos prints
-const data_2025_09 = [
+// Outubro 2025 — atualizado
+const data_2025_10 = [
   {rank:1,  name:"Pulgar",      state:"MA", rec:"7V • 0E • 0D",  rate:100, games:7,  medal:"🥇"},
   {rank:2,  name:"Euzebio",     state:"BA", rec:"2V • 0E • 0D",  rate:100, games:2,  medal:"🥈"},
   {rank:3,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥉"},
@@ -46,11 +47,12 @@ const data_2025_09 = [
   {rank:13, name:"Lima",        state:"GO", rec:"2V • 0E • 2D",  rate:50,  games:4},
   {rank:14, name:"KG",          state:"PE", rec:"4V • 0E • 5D",  rate:44,  games:9},
   {rank:15, name:"Everton086",  state:"PI", rec:"10V • 6E • 9D", rate:38,  games:26},
-  {rank:16, name:"viny",        state:"AC", rec:"1V • 0E • 2D",  rate:33,  games:3},
-  {rank:17, name:"Vitin",       state:"PI", rec:"3V • 2E • 6D",  rate:27,  games:11},
+  {rank:16, name:"Vitin",       state:"PI", rec:"4V • 1E • 6D",  rate:36,  games:11},
+  {rank:17, name:"viny",        state:"AC", rec:"1V • 0E • 2D",  rate:33,  games:3},
   {rank:18, name:"DAVX",        state:"BA", rec:"1V • 1E • 5D",  rate:13,  games:8},
   {rank:19, name:"LeoniM10",    state:"MA", rec:"0V • 0E • 2D",  rate:0,   games:2},
 ];
+
 
 
 // Mapa de datasets
