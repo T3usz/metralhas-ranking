@@ -28,10 +28,8 @@ const data_2025_08 = [
   {rank:24, name:"BK3",         state:"PA", rec:"0V • 0E • 1D",  rate:0,   games:1},
 ];
 
-// Setembro 2025 — deixe vazio e preencha quando tiver resultados
 // Setembro 2025 — atualizado pelos últimos prints
-// Outubro 2025 — atualizado
-const data_2025_10 = [
+const data_2025_09 = [
   {rank:1,  name:"Pulgar",      state:"MA", rec:"7V • 0E • 0D",  rate:100, games:7,  medal:"🥇"},
   {rank:2,  name:"Euzebio",     state:"BA", rec:"2V • 0E • 0D",  rate:100, games:2,  medal:"🥈"},
   {rank:3,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥉"},
