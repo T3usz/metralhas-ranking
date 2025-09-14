@@ -29,31 +29,29 @@ const data_2025_08 = [
 ];
 
 // Setembro 2025 — deixe vazio e preencha quando tiver resultados
+// Setembro 2025 — atualizado pelos últimos prints
 const data_2025_09 = [
-    {rank:1,  name:"Pulgar",      state:"MA", rec:"5V • 0E • 0D",  rate:100, games:5,  medal:"🥇"},
+  {rank:1,  name:"Pulgar",      state:"MA", rec:"7V • 0E • 0D",  rate:100, games:7,  medal:"🥇"},
   {rank:2,  name:"Euzebio",     state:"BA", rec:"2V • 0E • 0D",  rate:100, games:2,  medal:"🥈"},
-  {rank:3,  name:"SM7_PRO",     state:"MA", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥉"},
-  {rank:4,  name:"EdgarWXZ",    state:"AL", rec:"3V • 0E • 1D",  rate:75,  games:4},
-  {rank:5,  name:"DL7",         state:"BA", rec:"12V • 1E • 4D", rate:71,  games:17},
-  {rank:6,  name:"Lukas Pit",   state:"MG", rec:"10V • 4E • 1D", rate:67,  games:15},
-  {rank:7,  name:"MALVADEZA",   state:"PE", rec:"6V • 2E • 4D",  rate:50,  games:12},
-  {rank:8,  name:"vt7",         state:"RN", rec:"6V • 2E • 4D",  rate:50,  games:12},
-  {rank:9,  name:"Italo Dugrau",state:"PI", rec:"2V • 2E • 0D",  rate:50,  games:4},
-  {rank:10, name:"KG",          state:"PE", rec:"4V • 0E • 5D",  rate:44,  games:9},
-  {rank:11, name:"Everton086",  state:"PI", rec:"9V • 4E • 8D",  rate:43,  games:21},
-  {rank:12, name:"Vitin",       state:"PI", rec:"2V • 0E • 4D",  rate:33,  games:6},
-  {rank:13, name:"Lima",        state:"GO", rec:"1V • 0E • 2D",  rate:33,  games:3},
-  {rank:14, name:"DAVX",        state:"BA", rec:"1V • 1E • 5D",  rate:14,  games:7},
-  {rank:15, name:"ALISSON7SHOW",state:"PE", rec:"0V • 1E • 1D",  rate:0,   games:2},
-  {rank:16, name:"viny",        state:"AC", rec:"0V • 0E • 2D",  rate:0,   games:2},
-  {rank:17, name:"CEGUIN",      state:"RN", rec:"0V • 0E • 1D",  rate:0,   games:1},
-  {rank:18, name:"Liderança",   state:"PI", rec:"0V • 0E • 0D",  rate:0,   games:0},
-  {rank:19, name:"BK3",         state:"PA", rec:"0V • 0E • 0D",  rate:0,   games:0},
-  {rank:20, name:"CF10",        state:"PI", rec:"0V • 0E • 0D",  rate:0,   games:0},
-  {rank:21, name:"GBdazarea",   state:"CE", rec:"0V • 0E • 0D",  rate:0,   games:0},
-  {rank:22, name:"Biel7",       state:"MG", rec:"0V • 0E • 0D",  rate:0,   games:0},
-  {rank:23, name:"PZR10",       state:"BA", rec:"0V • 0E • 0D",  rate:0,   games:0},
+  {rank:3,  name:"Rafael",      state:"PE", rec:"1V • 0E • 0D",  rate:100, games:1,  medal:"🥉"},
+  {rank:4,  name:"EdgarWXZ",    state:"AL", rec:"4V • 0E • 1D",  rate:80,  games:5},
+  {rank:5,  name:"CEGUIN",      state:"RN", rec:"4V • 0E • 1D",  rate:80,  games:5},
+  {rank:6,  name:"DL7",         state:"BA", rec:"15V • 2E • 4D", rate:71,  games:21},
+  {rank:7,  name:"SM7_PRO",     state:"MA", rec:"2V • 0E • 1D",  rate:67,  games:3},
+  {rank:8,  name:"Lukas Pit",   state:"MG", rec:"11V • 5E • 2D", rate:61,  games:18},
+  {rank:9,  name:"ALISSON7SHOW",state:"PE", rec:"3V • 1E • 1D",  rate:60,  games:5},
+  {rank:10, name:"MALVADEZA",   state:"PE", rec:"8V • 3E • 5D",  rate:50,  games:16},
+  {rank:11, name:"vt7",         state:"RN", rec:"7V • 3E • 4D",  rate:50,  games:14},
+  {rank:12, name:"Italo Dugrau",state:"PI", rec:"3V • 2E • 1D",  rate:50,  games:6},
+  {rank:13, name:"Lima",        state:"GO", rec:"2V • 0E • 2D",  rate:50,  games:4},
+  {rank:14, name:"KG",          state:"PE", rec:"4V • 0E • 5D",  rate:44,  games:9},
+  {rank:15, name:"Everton086",  state:"PI", rec:"10V • 6E • 9D", rate:38,  games:26},
+  {rank:16, name:"viny",        state:"AC", rec:"1V • 0E • 2D",  rate:33,  games:3},
+  {rank:17, name:"Vitin",       state:"PI", rec:"3V • 2E • 6D",  rate:27,  games:11},
+  {rank:18, name:"DAVX",        state:"BA", rec:"1V • 1E • 5D",  rate:13,  games:8},
+  {rank:19, name:"LeoniM10",    state:"MA", rec:"0V • 0E • 2D",  rate:0,   games:2},
 ];
+
 
 // Mapa de datasets
 const datasets = {
