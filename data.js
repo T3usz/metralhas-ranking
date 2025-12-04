@@ -94,7 +94,7 @@ const data_2025_10 = [
 
 // Novembro 2025 — atualizado
 const data_2025_11 = [
-  {rank:1,  name:"fz27",        rec:"6V • 0E • 0D",  rate:100, games:6},
+  {rank:1,  name:"fz7",        rec:"6V • 0E • 0D",  rate:100, games:6},
   {rank:2,  name:"th7",         rec:"4V • 0E • 0D",  rate:100, games:4},
   {rank:3,  name:"twelve",      rec:"3V • 0E • 0D",  rate:100, games:3},
   {rank:4,  name:"viny",        rec:"1V • 0E • 0D",  rate:100, games:1},
