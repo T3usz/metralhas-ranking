@@ -92,6 +92,49 @@ const data_2025_10 = [
   {rank:37, name:"Rn",         rec:"1V • 1E • 0D", rate:50,  games:2},
 ];
 
+// Novembro 2025 — atualizado
+const data_2025_11 = [
+  {rank:1,  name:"fz27",        rec:"6V • 0E • 0D",  rate:100, games:6},
+  {rank:2,  name:"th7",         rec:"4V • 0E • 0D",  rate:100, games:4},
+  {rank:3,  name:"twelve",      rec:"3V • 0E • 0D",  rate:100, games:3},
+  {rank:4,  name:"viny",        rec:"1V • 0E • 0D",  rate:100, games:1},
+  {rank:5,  name:"iury",        rec:"13V • 1E • 1D", rate:87,  games:15},
+  {rank:6,  name:"lukas pit",   rec:"13V • 2E • 1D", rate:81,  games:16},
+  {rank:7,  name:"dl7",         rec:"31V • 3E • 4D", rate:82,  games:38},
+  {rank:8,  name:"ernande",     rec:"12V • 1E • 2D", rate:80,  games:15},
+  {rank:9,  name:"Ednaldo",     rec:"27V • 2E • 5D", rate:79,  games:34},
+  {rank:10, name:"JN Joga Easy",rec:"4V • 0E • 1D",  rate:80,  games:5},
+  {rank:11, name:"Quirino",     rec:"20V • 2E • 5D", rate:74,  games:27},
+  {rank:12, name:"Alvin",       rec:"7V • 2E • 1D",  rate:70,  games:10},
+  {rank:13, name:"Jerand06",    rec:"3V • 0E • 1D",  rate:75,  games:4},
+  {rank:14, name:"Gustavo Ceguinho", rec:"10V • 2E • 3D", rate:67, games:15},
+  {rank:15, name:"Vt7",         rec:"19V • 5E • 6D", rate:63,  games:30},
+  {rank:16, name:"vitin",       rec:"1V • 1E • 0D",  rate:50,  games:2},
+  {rank:17, name:"Iris",        rec:"1V • 1E • 0D",  rate:50,  games:2},
+  {rank:18, name:"Tx",          rec:"5V • 0E • 3D",  rate:63,  games:8},
+  {rank:19, name:"vitorrzb",    rec:"5V • 0E • 3D",  rate:63,  games:8},
+  {rank:20, name:"pires",       rec:"3V • 2E • 1D",  rate:50,  games:6},
+  {rank:21, name:"pulgar",      rec:"11V • 1E • 7D", rate:58,  games:19},
+  {rank:22, name:"Gbdazarea",   rec:"10V • 3E • 6D", rate:53,  games:19},
+  {rank:23, name:"CF10",        rec:"9V • 1E • 6D",  rate:56,  games:16},
+  {rank:24, name:"jeremy",      rec:"5V • 2E • 3D",  rate:50,  games:10},
+  {rank:25, name:"Mayra",       rec:"1V • 2E • 0D",  rate:33,  games:3},
+  {rank:26, name:"everton",     rec:"5V • 1E • 4D",  rate:50,  games:10},
+  {rank:27, name:"RN10",        rec:"7V • 2E • 7D",  rate:44,  games:16},
+  {rank:28, name:"Pedrin",      rec:"5V • 1E • 5D",  rate:45,  games:11},
+  {rank:29, name:"Gordin",      rec:"5V • 2E • 5D",  rate:42,  games:12},
+  {rank:30, name:"Rafael",      rec:"4V • 3E • 5D",  rate:33,  games:12},
+  {rank:31, name:"lima",        rec:"1V • 0E • 2D",  rate:33,  games:3},
+  {rank:32, name:"jn",          rec:"0V • 1E • 0D",  rate:0,   games:1},
+  {rank:33, name:"erik",        rec:"0V • 1E • 0D",  rate:0,   games:1},
+  {rank:34, name:"vinicius",    rec:"0V • 1E • 1D",  rate:0,   games:2},
+  {rank:35, name:"Edgar",       rec:"1V • 0E • 6D",  rate:14,  games:7},
+  {rank:36, name:"Albano",      rec:"0V • 0E • 5D",  rate:0,   games:5},
+  {rank:37, name:"RDG",         rec:"0V • 0E • 1D",  rate:0,   games:1},
+  {rank:38, name:"sm7",         rec:"0V • 0E • 1D",  rate:0,   games:1},
+  {rank:39, name:"Italo Dugrau",rec:"0V • 0E • 2D",  rate:0,   games:2},
+  {rank:40, name:"vitor",       rec:"0V • 0E • 2D",  rate:0,   games:2},
+];
 
 
 // Mapa de datasets
@@ -99,11 +142,14 @@ const datasets = {
   "2025-08": data_2025_08,
   "2025-09": data_2025_09,
   "2025-10": data_2025_10,
+  "2025-11": data_2025_11, // <-- adicionado
 };
 
 // Para popular o <select> no HTML
 const datasetLabels = {
   "2025-08": "Agosto/2025",
   "2025-09": "Setembro/2025",
-  "2025-10": "outubro/2025"
+  "2025-10": "Outubro/2025",
+  "2025-11": "Novembro/2025", // <-- adicionado
 };
+
