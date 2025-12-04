@@ -6,7 +6,7 @@ const tbody    = document.querySelector("#table tbody");
 const q        = document.getElementById("q");
 
 // ======= CONFIG =======
-const MIN_GAMES = 10; // <- mude aqui se quiser outro mínimo
+const MIN_GAMES = 8; // <- mude aqui se quiser outro mínimo
 
 // Preenche o seletor de meses a partir de datasetLabels
 monthSel.innerHTML = Object.entries(datasetLabels)
