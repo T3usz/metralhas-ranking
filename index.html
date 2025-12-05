@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0a0a0a">
   <title>Metralhas E-sports — Top Jogadores</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+
+  <!-- Ícone -->
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='.9em' font-size='90'>🎮</text>
+    </svg>">
+
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <!-- Link 'Sobre' no topo direito -->
-  <nav style="text-align:right; padding:8px 16px;">
+  <!-- Navegação -->
+  <nav class="top-nav">
     <a href="sobre.html" class="tag">Sobre</a>
   </nav>
 
   <div class="wrap">
+
     <header>
       <div class="brand">
         <img src="escudo.jpg" alt="Escudo Metralhas E-sports" class="escudo">
+
         <div>
           <h1>Metralhas E-sports <span class="tag">Ranking Atual</span></h1>
           <div class="subtitle">Top jogadores, taxa de vitória e histórico (V • E • D)</div>
@@ -28,35 +41,40 @@
 
       <div class="tools">
         <select id="month" class="ctrl" aria-label="Selecionar mês"></select>
-        <input id="q" class="search" type="search" placeholder="Pesquisar jogador…" aria-label="Pesquisar jogador" />
+        <input id="q" class="search" type="search" placeholder="Pesquisar jogador…" aria-label="Pesquisar jogador">
       </div>
     </header>
 
-    <!-- 🏆 Mensagem de parabéns (efeito animado) -->
+    <!-- Toast animado -->
     <div id="parabens" class="toast" style="display: none;"></div>
 
+    <!-- Ranking -->
     <div class="card" role="region" aria-label="Ranking de jogadores Metralhas E-sports">
       <div class="table-wrap">
         <table class="table" id="table">
           <thead>
             <tr>
-              <th class="rank">#</th>
-              <th>Jogador</th>
-              <th>Histórico</th>
-              <th>Win Rate</th>
-              <th>Jogos</th>
+              <th scope="col" class="rank">#</th>
+              <th scope="col">Jogador</th>
+              <th scope="col">Histórico</th>
+              <th scope="col">Win Rate</th>
+              <th scope="col">Jogos</th>
             </tr>
           </thead>
-          <tbody><!-- preenchido via JS --></tbody>
+          <tbody>
+            <!-- preenchido via JS -->
+          </tbody>
         </table>
       </div>
     </div>
 
     <footer>© Metralhas E-sports — painel gerado automaticamente</footer>
+
   </div>
 
   <!-- Scripts -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+
 </body>
 </html>

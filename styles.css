@@ -15,14 +15,31 @@ body{
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Color Emoji","EmojiOne Color","Segoe UI Emoji",sans-serif;
   font-size:clamp(14px, 2.5vw, 16px);
   background:
-    radial-gradient(1200px 600px at -10% -10%, rgba(255,122,24,.18), transparent 60%),
-    radial-gradient(900px 500px at 110% -10%, rgba(255,183,3,.14), transparent 60%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%),
+    radial-gradient(800px 400px at -10% -10%, rgba(255,122,24,.15), transparent 60%),
+    radial-gradient(600px 300px at 110% -10%, rgba(255,183,3,.10), transparent 60%);
   color:var(--text);
 }
 
 .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+
+/* ---------- HEADER RESPONSIVO ---------- */
+header{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:18px;
+}
+
+@media(min-width:700px){
+  header{
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+}
+
 .brand{display:flex;align-items:center;gap:12px}
 
 /* Escudo */
@@ -35,6 +52,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
   content:"";position:absolute;inset:-2px;border-radius:14px;pointer-events:none;
   background:conic-gradient(from 220deg,var(--accent) 0 50%,var(--accent-2) 50% 85%,#2a2a2a 85% 100%);
   z-index:-1;filter:blur(6px);opacity:.35;
+  will-change:filter,opacity;
 }
 
 h1{font-size:clamp(18px, 5vw, 30px);margin:0}
@@ -48,27 +66,44 @@ h1{font-size:clamp(18px, 5vw, 30px);margin:0}
   outline:none;transition:.2s border-color,.2s box-shadow
 }
 .search:focus{border-color:rgba(255,122,24,.6);box-shadow:0 0 0 3px rgba(255,122,24,.15)}
+
 .ctrl{
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  color:var(--text);padding:12px 14px;border-radius:12px
+  color:var(--text);padding:12px 14px;border-radius:12px;
+  outline:none;
+}
+.ctrl:focus{
+  border-color:rgba(255,122,24,.6);
+  box-shadow:0 0 0 3px rgba(255,122,24,.15);
 }
 
+/* CARD */
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   border:1px solid rgba(255,255,255,.08);
   border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
 }
 
-/* ---------- Tabela ---------- */
+/* ---------- TABELA ---------- */
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table{width:100%;border-collapse:separate;border-spacing:0}
+
 .table thead th{
   text-align:left;font-weight:600;padding:14px 16px;font-size:13px;letter-spacing:.02em;
-  color:#e9e9e9;background:rgba(255,255,255,.03);position:sticky;top:0;backdrop-filter:blur(8px)
+  color:#e9e9e9;background:rgba(14,14,14,.85);
+  position:sticky;top:0;backdrop-filter:blur(8px)
 }
+
 .table tbody td{
-  padding:16px 14px;border-top:1px solid rgba(255,255,255,.06);vertical-align:middle;font-size:14px
+  padding:16px 14px;
+  border-top:1px solid rgba(255,255,255,.12);
+  vertical-align:middle;font-size:14px;
 }
+
+.table tbody tr:hover td{
+  background:rgba(255,255,255,.03);
+}
+
 .rank{font-variant-numeric:tabular-nums;opacity:.9;width:52px}
 .name{font-weight:600}
 .state{color:var(--muted);font-size:12px;margin-left:8px}
@@ -76,20 +111,36 @@ h1{font-size:clamp(18px, 5vw, 30px);margin:0}
 .games{font-variant-numeric:tabular-nums;color:var(--muted)}
 .rate{font-variant-numeric:tabular-nums;font-weight:600;display:flex;flex-direction:column;gap:6px}
 
-.tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
-  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px}
+.tag{
+  font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
+  color:#ffd7a8;background:rgba(255,122,24,.10);margin-left:8px
+}
 
-.bar{position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-.bar>span{position:absolute;inset:0 auto 0 0;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.bar{
+  position:relative;height:8px;border-radius:999px;background:#1f1f1f;overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)
+}
+.bar>span{
+  position:absolute;inset:0 auto 0 0;width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transition:width .4s ease;
+}
 
-.pill{padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
-  border:1px solid rgba(255,255,255,.12);background:rgba(255,122,24,.12);color:#ffd7a8}
+.pill{
+  padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:600;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,122,24,.12);color:#ffd7a8
+}
 
-.gold{color:#ffea8a}.silver{color:#eeeeee}.bronze{color:#ffc561}
-footer{color:var(--muted);font-size:12px;text-align:center;margin-top:16px}
+.gold{color:#ffea8a}
+.silver{color:#eeeeee}
+.bronze{color:#ffc561}
 
-/* ---------- Mobile compacto (tabela com scroll lateral) ---------- */
+footer{
+  color:var(--muted);font-size:12px;text-align:center;
+  margin:40px 0 20px;
+}
+
+/* ---------- Mobile compacto ---------- */
 @media (max-width:640px){
   .table{min-width:620px}
   .table thead th{padding:10px 10px;font-size:12px}
@@ -100,13 +151,14 @@ footer{color:var(--muted);font-size:12px;text-align:center;margin-top:16px}
   .state{display:none}
 }
 
+/* ---------- Toast ---------- */
 .toast {
   position: relative;
   margin-bottom: 20px;
   padding: 16px 20px;
   background: rgba(255, 122, 24, 0.15);
   border-left: 4px solid var(--accent);
-  color: #ffd7a8;
+  color: #ffe8c6;
   font-weight: 600;
   border-radius: 12px;
   animation: slideDownFade 0.6s ease forwards;
